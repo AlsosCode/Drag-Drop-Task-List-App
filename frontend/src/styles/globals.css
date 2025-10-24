@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-macos-bg dark:bg-macos-dark-bg text-macos-text dark:text-macos-dark-text font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  input, textarea {
+    @apply outline-none;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .dark .glass-effect {
+    background: rgba(44, 44, 46, 0.7);
+  }
+}
