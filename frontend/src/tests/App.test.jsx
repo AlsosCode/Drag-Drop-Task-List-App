@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from '../App';
 
 // Mock localStorage
@@ -22,6 +22,12 @@ Object.defineProperty(window, 'localStorage', {
 
 // Mock fetch
 global.fetch = vi.fn();
+
+// Mock Google OAuth
+vi.mock('@react-oauth/google', () => ({
+  GoogleOAuthProvider: ({ children }) => children,
+  GoogleLogin: () => <div>Google Login Button</div>,
+}));
 
 describe('App Component', () => {
   beforeEach(() => {
@@ -46,10 +52,9 @@ describe('App Component', () => {
     expect(screen.getByText('Milk')).toBeInTheDocument();
   });
 
-  it('should have sync buttons', () => {
+  it('should show Google login when not authenticated', () => {
     render(<App />);
-    expect(screen.getByText('Save to Server')).toBeInTheDocument();
-    expect(screen.getByText('Load from Server')).toBeInTheDocument();
+    expect(screen.getByText('Google Login Button')).toBeInTheDocument();
   });
 
   it('should show New List button', () => {
