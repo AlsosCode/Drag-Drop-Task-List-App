@@ -2,7 +2,7 @@
 
 A modern, intuitive task management application with Apple-OS inspired design, featuring drag-and-drop functionality and Google authentication for multi-user support.
 
-**Live Demo**: Coming soon on Vercel
+**Live Demo**: [https://drag-drop-task-list-app.vercel.app](https://drag-drop-task-list-app.vercel.app) 🚀
 
 ![GitHub Actions](https://github.com/AlsosCode/Drag-Drop-Task-List-App/workflows/CI/badge.svg)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
